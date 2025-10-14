@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+{% load static %}
+<title>Alan | {% block title %}About{% endblock title %}</title>
+
+
+{% block content %}
+<div style="text-align: center; padding: 10px;">
+	<h1>About</h1>
+</div>
+<div class="About">
+        <div class="flex-item item-1">
+        	<div class="photos">
+      	<img src="{% static 'images/In side Restaurant.jpg'%}">
+        	</div>
+
+            <h3>Our Services</h3>
+            <p>We cook many qualities of foods and our fooods are very delicious.</br>
+				You are welcome</p>
+        </div>
+
+        <div class="flex-item item-2">
+        	<div class="photos">
+      			<img src="{% static 'images/Image time.JFIF'%}">
+        	</div>
+
+            <h3>Time of Work</h3>
+            <p>Our Restaurant open at 7:00AM until 7:30PM everyday Monday to Friday</p>
+        </div>
+
+        <div class="flex-item item-3">
+        	<div class="photos">
+      	<img src="{% static 'images/Locotion.jpg'%}">
+        	</div>
+
+            <h3>Our Adress</h3>
+            <p>J946+R9x,Japan Bd,Rohero-Bujunbura-Burundi</p>
+        </div>
+</div>
+{% endblock content %}
+

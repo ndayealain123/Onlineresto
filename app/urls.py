@@ -1,0 +1,24 @@
+from django.contrib import admin
+from django.urls import path
+from .views import*
+
+urlpatterns = [
+    path('',Home,name="home"),
+    path('menu/',Menuview,name="menu"),
+    path('social',Canteen),
+    path('register/', register_profil, name='register'),
+    path('create_order/<int:pk>', Create_order, name='new_order'),
+    path('login/', connexion, name='connect'),
+    path('deconnexion/', deconnexion, name='deconnect'),
+    path('order/', orderview, name='order'),
+    path('Media',Restoo),
+    path('about/',aboutview,name="about"),
+    path('finish/<int:pk>',finishOrder,name="finished"),
+    path('receive/<int:pk>',receiveOrder,name="received"),
+
+
+
+
+
+
+]

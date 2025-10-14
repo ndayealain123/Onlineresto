@@ -1,0 +1,48 @@
+.About {
+	padding: 10px;
+	/*background: #85aff2;*/
+	display:flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	font-family: roboto;
+}
+
+.photos{
+	display:flex;
+	flex-wrap: wrap;
+	box-shadow: 5px #85aff2;
+}
+.photos img{
+	border-radius: 6px;
+	width: 100%;
+}
+.flex-item:hover{
+	transform: scale(1.2);
+}
+.flex-item{
+	width: 180px;
+	margin: 10px;
+	border-radius: 6px;
+	background-color: #dfdfdf;
+	transition: 0.5s;
+	cursor: pointer;
+}
+
+.flex-item
+h3{
+	color: green;
+}
+
+.item-1{
+	flex-grow: 1;	
+}
+
+.item-2{
+	flex-grow: 1;
+
+}
+
+.item-3{
+	flex-grow: 1;
+
+}

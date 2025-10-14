@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/regester.css' %}">
+	<title>Alan | {% block title %}Home{% endblock title %}</title>
+
+</head>
+<body>
+	<div class="logo">
+		<h1>Alan Resto</h1>
+		<p>Cash on delivery</p>
+	</div>
+	<div class="header">
+		<div class="m-link">
+			<ul>
+				<li>
+					<a href="{% url 'home' %}">Home</a>
+				</li>
+				<li>
+					<a href="{% url 'menu' %}">Menu</a>
+				</li>
+           		{% if user.is_authenticated %}
+				<li>
+					<a href="{% url 'order' %} ">Order</a>
+				</li>
+            	{% endif %}
+				
+        		<li>
+					<a href=" {% url 'about' %} ">About</a>
+				</li>
+ 		</ul>
+		</div>
+		<div class="login">
+           {% if user.is_authenticated %}
+				<h3><a href="{% url 'deconnect' %}">Log Out</a></h3>
+			{% else %}
+				<h3><a class="lg" href="{% url 'connect' %}">Login</a></h3>
+            {% endif %}
+		</div>
+	</div>
+
+	{% block content %}
+<h1 style="text-align: center;">You are Welcome</h1>
+	<div class="container">
+		{%for menu in menu_list%}
+		<div class="menu-item">
+			<div class="image">
+				<img src="{{menu.photos.url}}" alt="">
+			</div>
+			<h2>{{menu.name}} | {{menu.price}} BIF</h2>
+			<div class="btn">
+				<a href="{% url 'new_order' menu.id %}" class="order_btn">Order</a>
+			</div>
+		</div>
+		{%endfor%}
+	</div>
+	{% endblock content %}
+
+	{% block footer %}
+	<div class="footer"> 
+    <section class="resources">  
+            <div class="module"> 
+                <h3>Contact</h3> 
+                <ul> 
+                    <li class="mail"><a href="">Support</a></li> 
+                    <li class="phone"><a href="">(+257)71152681 or 69068207</a></li> 
+                    <li class="twitter"><a href="">@resto</a></li> 
+                    <li class="facebook"><a href="">Alan Resto</a></li> 
+                </ul> 
+            </div> 
+            <div class="module"> 
+                <h3>Alan Resto</h3> 
+                <p>We cook many qualities of foods and our fooods are very delicious.</br>
+				You are welcome</p> 
+                <ul> 
+                    <li>Alan Resto street J946+R9x,Japan Bd</li> 
+                    <li>Rohero-Bujunbura-Burundi,Country</li> 
+                </ul> 
+            </div> 
+    </section> 
+    <div> 
+        <p>&copy right; Create by Alain NDAYE in May 2022</p> 
+    </div> 
+</div> 
+	{% endblock footer  %}
+
+
+</body>
+</html>

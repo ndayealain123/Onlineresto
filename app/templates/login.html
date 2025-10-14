@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style-login.css' %}">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="left">
+                <div class="name">
+                    <h4>Cook Better</h4>
+                    <h2>Alan Resto</h2>
+                </div>
+            </div>
+            <div class="right">
+                <div class="form-area">
+                    <div class="form-title">
+                        <h2>Log in</h2>
+                        <p>Please enter the correct account username and password</p>
+                    </div>
+                    <form class="form" method="POST" action=".">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            {{ connexion_form.username }}
+                        </div>
+                        <div class="form-row">
+                            {{ connexion_form.password }}
+                        </div>
+                        <div class="form-row">
+                            <input type="submit" class="btn" value="Log in">
+                        </div>
+                        <p>Or create an account<a href="{% url 'register' %}"> Sign Up</a>.</p>
+                    </form>
+                </div>
+            </div>
+    </div>
+</body>
+</html>

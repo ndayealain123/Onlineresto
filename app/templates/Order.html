@@ -1,0 +1,53 @@
+{% extends 'index.html' %}
+
+	{% block title %}
+	<title>Order</title>
+	{% endblock title %}
+	{% block content %}
+	{% if orderList %}
+	<div class="table">
+	<table>
+		<thead>
+			<tr>
+				<th>Client</th>
+				<th>Office number</th>
+				<th>Menu</th>
+				<th>Date</th>
+				<th>Options</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in orderList %}
+			<tr>
+				<td>{{item.client.user.username}}</td>
+				<td>{{item.client.address}}</td>
+				<td>{{item.menu.name}} {{item.menu.price}} BIF</td>
+				<td>{{item.datetime}}</td>
+				<td class="action">
+					{% if item.vailable and "Client" in user.groups.all.0.name and not item.delived  %}
+						<p>Placed...</p>
+						<a href="{% url 'received' item.id %}" class="received">Receive</a>
+					{% elif not item.vailable and "Client" in user.groups.all.0.name and not item.delived %}
+						<button class="received">Placed...</button>
+					{% endif %}
+					{% if not item.vailable and "Chef" in user.groups.all.0.name %}
+						<a href="{% url 'finished' item.id %}" class="finish">Finished</a>
+					{% endif %}
+					{% if "Deliver" in user.groups.all.0.name %}
+						<button class="delived">Delived</button>
+					{% endif %}
+					{% if item.delived %}
+						<button class="received">Received</button>
+					{% endif %}
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	</div>
+	{% else %}
+	<h1 style="text-align:center;">No ordered Menu</h1>
+	{% endif %}
+
+
+	{% endblock content %}
