@@ -5,25 +5,24 @@ from .views import *
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', Home, name="home"),
     path('menu/', Menuview, name="menu"),
-    path('social', Canteen),
+    path('social/', Canteen, name="social"),
     path('register/', register_profil, name='register'),
-    path('create_order/<int:pk>', Create_order, name='new_order'),
+    path('create_order/<int:pk>/', Create_order, name='new_order'),
     path('login/', connexion, name='connect'),
     path('deconnexion/', deconnexion, name='deconnect'),
     path('order/', orderview, name='order'),
-    path('Media', Restoo),
+    path('media/', Restoo, name='media'),
     path('about/', aboutview, name="about"),
-    path('finish/<int:pk>', finishOrder, name="finished"),
-    path('receive/<int:pk>', receiveOrder, name="received"),
+    path('finish/<int:pk>/', finishOrder, name="finished"),
+    path('receive/<int:pk>/', receiveOrder, name="received"),
 ]
 
-# SERVE MEDIA FILES (IMPORTANT)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
-
+# Serve uploaded media files
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
