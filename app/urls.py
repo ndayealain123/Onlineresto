@@ -7,6 +7,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('', Home, name="home"),
     path('menu/', Menuview, name="menu"),
     path('social', Canteen),
@@ -21,5 +22,5 @@ urlpatterns = [
     path('receive/<int:pk>', receiveOrder, name="received"),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# SERVE MEDIA FILES (IMPORTANT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
