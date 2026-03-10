@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: serif;
+}
+
+body {
+    background-image: linear-gradient(to right,#fed3e7,#fe9292);
+    background-size: cover;
+}
+.content{
+    width: 70%;
+    margin: 50px auto;
+    border-radius: 50px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 0 3px 12px #fed3e7cc;
+}
+.content .left{
+    background: url('./pexels.jpg') no-repeat fixed;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content .right{
+    background: #fff;
+    flex-basis: 50%;
+    padding: 130px 90px 60px;
+}
+.form-area{
+    display: flex;
+    flex-direction: column;
+}
+.form-title{
+    margin-bottom: 30px;
+}
+.form-title p{
+    font-size: 14px;
+    width: 200PX;
+    margin-top: 10px;
+}
+.form .form-row{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.form .form-row input{
+    padding: 8px;
+    outline: none;
+    border-radius: 10px;
+    margin-bottom: 10px 0;
+    border: 2px solid #fe9292;
+}
+.form .form-row .btn{
+    background: #fe9292;
+    color: #fff;
+    font-size: 18px;
+}
+.form p{
+    font-size: 13px;
+    text-align: center;
+}
+.form a{
+    text-decoration: none;
+    color: #fe9292;
+}
+
+.left .name{
+    padding: 20px 70px;
+    background:rgba(0, 0, 0, .3);
+    display: inline-block;
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+}
+.left .name h4{
+    color: #fff;
+    text-align: center;
+}
+.left .name h2{
+    text-align: center;
+    color: #fed3e7;
+    font-size: 50px;
+    letter-spacing: 4px;
+}
+@media screen and (max-width : 900px){
+    .content{
+        flex-direction: column;
+    }
+    .content .right{
+        flex-basis: 80%;
+        padding: 90px;
+        border-radius: 8px;
+    }
+}
+@media screen and (max-width : 600px){
+    .left{
+        display: none;
+    }
+    .content .right{
+        flex-basis: 80%;
+        padding: 10px;
+    }
+}
