@@ -1,10 +1,11 @@
 {% extends 'index.html' %}
 {% load static %}
 
-<title>Alan | {% block title %}Menu{% endblock title %}</title>
+{% block title %}Menu{% endblock title %}
 
 {% block content %}
-<h1 style="text-align: center;">Our Menus</h1>
+
+<h1 style="text-align:center;">Our Menus</h1>
 
 <div class="container">
 
@@ -13,7 +14,7 @@
 <div class="menu-item">
 
 <div class="image">
-<img src="{{ menu.image.url }}">
+<img src="{{ menu.image.url }}" alt="{{ menu.name }}">
 </div>
 
 <h2>{{ menu.name }} | {{ menu.price }} BIF</h2>
