@@ -1,13 +1,13 @@
-from django.contrib import admin
 from django.urls import path
 from .views import *
+from django.contrib import admin
+from django.urls import path, include
 
 from django.conf import settings
 from django.conf.urls.static import static
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
 
+urlpatterns = [
     path('', Home, name="home"),
     path('menu/', Menuview, name="menu"),
     path('social', Canteen),
@@ -16,11 +16,16 @@ urlpatterns = [
     path('login/', connexion, name='connect'),
     path('deconnexion/', deconnexion, name='deconnect'),
     path('order/', orderview, name='order'),
-    path('Media', Restoo),
     path('about/', aboutview, name="about"),
     path('finish/<int:pk>', finishOrder, name="finished"),
     path('receive/<int:pk>', receiveOrder, name="received"),
 ]
 
-# SERVE MEDIA FILES (IMPORTANT)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    
+]
+
+if settings.DEBUG:
+ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

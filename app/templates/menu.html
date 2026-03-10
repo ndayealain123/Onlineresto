@@ -10,7 +10,8 @@
 		{%for menu in menu_list%}
 		<div class="menu-item">
 			<div class="image">
-				<img src="{{menu.photos.url}}" alt="">
+			
+				<img src="{{ item.image.url }}">
 			</div>
 			<h2>{{menu.name}} | {{menu.price}} BIF</h2>
 			<div class="btn">
