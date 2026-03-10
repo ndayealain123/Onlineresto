@@ -25,8 +25,8 @@ SECRET_KEY = 'sk45%$zr9xz7+y9-cgsu61l4&qt*d0jj9sq1f3wgtrzzuro-z_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-
+"""ALLOWED_HOSTS = ['*']"""
+ALLOWED_HOSTS = ["onlineresto.onrender.com"]
 
 # Application definition
 
