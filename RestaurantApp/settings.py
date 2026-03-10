@@ -129,3 +129,21 @@ MEDIA_URL='/Media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "Media")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Static configuration
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+#WhiteNoise middleware
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+]
+
+
+#Static storage
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
