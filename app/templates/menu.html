@@ -1,24 +1,31 @@
 {% extends 'index.html' %}
 {% load static %}
-<title>Alan | {% block title %}Menu{% endblock title %}</title>
 
+<title>Alan | {% block title %}Menu{% endblock title %}</title>
 
 {% block content %}
 <h1 style="text-align: center;">Our Menus</h1>
 
 <div class="container">
-		{%for menu in menu_list%}
-		<div class="menu-item">
-			<div class="image">
-			
-				<img src="{{ item.image.url }}">
-			</div>
-			<h2>{{menu.name}} | {{menu.price}} BIF</h2>
-			<div class="btn">
-				<a href="{% url 'new_order' menu.id %}" class="order_btn">Order</a>
-			</div>
-		</div>
-		{%endfor%}
-	</div>
-{% endblock content %}
 
+{% for menu in menu_list %}
+
+<div class="menu-item">
+
+<div class="image">
+<img src="{{ menu.image.url }}">
+</div>
+
+<h2>{{ menu.name }} | {{ menu.price }} BIF</h2>
+
+<div class="btn">
+<a href="{% url 'new_order' menu.id %}" class="order_btn">Order</a>
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock content %}
