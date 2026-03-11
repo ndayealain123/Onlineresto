@@ -64,12 +64,11 @@
 
     <div class="image">
 
-       <{% if menu.photos %}
+ {% if menu.photos %}
     <img src="{{ menu.photos.url }}" alt="{{ menu.name }}">
 {% else %}
     <img src="{% static 'images/default-food.jpg' %}" alt="No Image">
 {% endif %}
-    </div>
 
     <h2>{{ menu.name }} | {{ menu.price }} BIF</h2>
 
