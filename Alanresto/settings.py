@@ -6,7 +6,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'your-secret-key'
 DEBUG = True  # Set False on Render
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'your-render-domain.onrender.com']
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'alanresto.onrender.com'
+]
 
 # Installed apps
 INSTALLED_APPS = [
